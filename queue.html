@@ -34,7 +34,8 @@
 		</p>
 	<input type="text" class="bruh" value="value">
 	<button type="button" onclick="makeNewDiv()">Add Value</button>
-	
+	<button type="button" onclick="fetchItem()">Fetch</button>
+	<button type="button" onclick="zap()" >Zap values</button>
 	
 </body>
 <script>
@@ -46,7 +47,23 @@
 		/* add it to the container */
 		let container = document.getElementById('target')
 		container.insertBefore(element,container.firstChild)
-		
+	}
+	function fetchItem(){
+		let queue = document.getElementsByClassName("queue")
+		let queuelen = queue.length
+		if(queuelen > 0){
+			queue[queuelen-1].remove()
+		}
+	}
+	function zap(){
+		let queue = document.getElementsByClassName("queue")
+		let val = document.getElementsByClassName('bruh')[0].value
+		for(let i = 0;i<queue.length; i++){
+			if(val==queue[i].innerHTML){
+				console.log(queue[i].innerHTML)
+				queue[i].remove()
+			}
+		}
 	}
 </script>
 </html>	
